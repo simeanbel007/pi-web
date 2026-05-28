@@ -1,0 +1,43 @@
+{
+  "name": "pi-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "dev:ui": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "npm run build:ui && npm run build:server",
+    "build:ui": "vite build",
+    "build:server": "tsgo -p tsconfig.server.json",
+    "build:dist": "npm run build:ui && npx tsx scripts/build-dist.ts",
+    "preview": "npm run build && node dist-server/index.js",
+    "start": "node --import tsx server/index.ts"
+  },
+  "dependencies": {
+    "@earendil-works/pi-agent-core": "file:../pi/packages/agent",
+    "@earendil-works/pi-ai": "file:../pi/packages/ai",
+    "@earendil-works/pi-coding-agent": "file:../pi/packages/coding-agent",
+    "express": "^5.1.0",
+    "ws": "^8.18.2",
+    "cors": "^2.8.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/node": "^22.19.19",
+    "@types/ws": "^8.18.1",
+    "@types/express": "^5.0.3",
+    "@types/cors": "^2.8.19",
+    "@vitejs/plugin-react": "^4.6.0",
+    "tsx": "^4.22.1",
+    "typescript": "~5.9.3",
+    "tailwindcss": "^4.1.12",
+    "@tailwindcss/vite": "^4.1.12",
+    "vite": "^6.3.5"
+  }
+}
